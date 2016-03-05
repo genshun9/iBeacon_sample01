@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "C135F7B393981B8D8F868F243C509910E683495F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "242E9C43459726EE356E278F3086B077AB21D2E9" : 0,
+    "C135F7B393981B8D8F868F243C509910E683495F" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9005A502-1C81-4FC4-AF4A-621C1150F370",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "242E9C43459726EE356E278F3086B077AB21D2E9" : "iBeaconSampleCentral_Display",
+    "C135F7B393981B8D8F868F243C509910E683495F" : "iBeaconSampleCentral_Display01\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "iBeaconSampleCentral",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "iBeaconSampleCentral.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lukemaeda\/iBeaconSampleCentral_Display.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "242E9C43459726EE356E278F3086B077AB21D2E9"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lukemaeda\/iBeaconSampleCentral_Display01.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C135F7B393981B8D8F868F243C509910E683495F"
+    }
+  ]
+}
