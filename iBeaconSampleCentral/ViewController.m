@@ -46,7 +46,6 @@
 
 - (void)viewDidLoad
 {
-    NSLog(@"UNKO1");
     [super viewDidLoad];
     
     //self.tvdisply.text = nil;
@@ -90,7 +89,6 @@
 
 - (void)didReceiveMemoryWarning
 {
-    NSLog(@"UNKO2");
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -120,7 +118,6 @@
 //
 - (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
 {
-    NSLog(@"UNKO5");
     // ローカル通知
     [self sendLocalNotificationForMessage:@"出口エリア Exit Region"];
     // Beaconの距離測定を終了する
@@ -148,7 +145,7 @@
                 self.distanceLabel.text = @"より近い";
                 {
                     // 送信したいURLを作成し、Requestを作成します。
-                    NSURL *url = [NSURL URLWithString:@"/sa?uu=C3373A41-8E97-4145-BC2B-B2DE7587C52F&mj=$0&mn=0&px=$1&id=$1"];
+                    NSURL *url = [NSURL URLWithString:@"http://54.248.1.152:9000/sa?uu=c3373a418e974145bc2bb2de7587c52f&mj=0&mn=0&px=immediate&id=1"];
                     NSURLRequest  *request = [[NSURLRequest alloc] initWithURL:url];
                 
                     // NSURLConnectionのインスタンスを作成したら、すぐに指定したURLへリクエストを送信し始めます。
@@ -160,7 +157,6 @@
                         NSLog(@"connection error.");
                     }
                     
-                    NSLog(@"REQUEST%@", request);
                 }
                 break;
             case CLProximityNear:
@@ -168,7 +164,7 @@
                 self.distanceLabel.text = @"近い";
                 {
                     // 送信したいURLを作成し、Requestを作成します。
-                    NSURL *url = [NSURL URLWithString:@"/sa?uu=C3373A41-8E97-4145-BC2B-B2DE7587C52F&mj=$0&mn=0&px=$2&id=$1"];
+                    NSURL *url = [NSURL URLWithString:@"http://54.248.1.152:9000/sa?uu=c3373a418e974145bc2bb2de7587c52f&mj=0&mn=0&px=near&id=1"];
                     NSURLRequest  *request = [[NSURLRequest alloc] initWithURL:url];
                 
                     // NSURLConnectionのインスタンスを作成したら、すぐに指定したURLへリクエストを送信し始めます。
@@ -180,7 +176,6 @@
                         NSLog(@"connection error.");
                     }
                     
-                    NSLog(@"REQUEST%@", request);
                 }
                 break;
             case CLProximityFar:
@@ -188,7 +183,7 @@
                 self.distanceLabel.text = @"遠い";
                 {
                     // 送信したいURLを作成し、Requestを作成します。
-                    NSURL *url = [NSURL URLWithString:@"/sa?uu=C3373A41-8E97-4145-BC2B-B2DE7587C52F&mj=$0&mn=0&px=$3&id=$1"];
+                    NSURL *url = [NSURL URLWithString:@"http://54.248.1.152:9000/sa?uu=c3373a418e974145bc2bb2de7587c52f&mj=0&mn=0&px=far&id=1"];
                     NSURLRequest  *request = [[NSURLRequest alloc] initWithURL:url];
                 
                     // NSURLConnectionのインスタンスを作成したら、すぐに指定したURLへリクエストを送信し始めます。
@@ -200,7 +195,6 @@
                         NSLog(@"connection error.");
                     }
                     
-                    NSLog(@"REQUEST%@", request);
                 }
                 break;
             default:
@@ -208,7 +202,7 @@
                 self.distanceLabel.text = @"測距エラー";
                 {
                     // 送信したいURLを作成し、Requestを作成します。
-                    NSURL *url = [NSURL URLWithString:@"/sa?uu=C3373A41-8E97-4145-BC2B-B2DE7587C52F&mj=$0&mn=0&px=$4&id=$1"];
+                    NSURL *url = [NSURL URLWithString:@"http://54.248.1.152:9000/sa?uu=c3373a418e974145bc2bb2de7587c52f&mj=0&mn=0&px=error&id=1"];
                     NSURLRequest  *request = [[NSURLRequest alloc] initWithURL:url];
                 
                     // NSURLConnectionのインスタンスを作成したら、すぐに指定したURLへリクエストを送信し始めます。
@@ -220,32 +214,30 @@
                         NSLog(@"connection error.");
                     }
                     
-                    NSLog(@"REQUEST%@", request);
                 }
                 break;
         }
         
         //-------------------------------------------------------------
         // iBeaconの電波強度を調べて、近距離に来た場合
-        if ( nearestBeacon.proximity == CLProximityImmediate && nearestBeacon.rssi > -40 ) {
-            self.distanceLabel.text   = @"よりより近い";
-            {
-                // 送信したいURLを作成し、Requestを作成します。
-                NSURL *url = [NSURL URLWithString:@"/sa?uu=C3373A41-8E97-4145-BC2B-B2DE7587C52F&mj=$0&mn=0&px=$0&id=$1"];
-                NSURLRequest  *request = [[NSURLRequest alloc] initWithURL:url];
-                
-                // NSURLConnectionのインスタンスを作成したら、すぐに指定したURLへリクエストを送信し始めます。
-                // delegate指定すると、サーバーからデータを受信したり、エラーが発生したりするとメソッドが呼び出される。
-                NSURLConnection *aConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-                
-                // 作成に失敗する場合には、リクエストが送信されないのでチェックする
-                if (!aConnection) {
-                    NSLog(@"connection error.");
-                }
-                
-                NSLog(@"REQUEST%@", request);
-            }
-        }
+//        if ( nearestBeacon.proximity == CLProximityImmediate && nearestBeacon.rssi > -40 ) {
+//            self.distanceLabel.text   = @"よりより近い";
+//            {
+//                // 送信したいURLを作成し、Requestを作成します。
+//                NSURL *url = [NSURL URLWithString:@"http://54.248.1.152:9000/sa?uu=c3373a418e974145bc2bb2de7587c52f&mj=0&mn=0&px=0&id=1"];
+//                NSURLRequest  *request = [[NSURLRequest alloc] initWithURL:url];
+//                
+//                // NSURLConnectionのインスタンスを作成したら、すぐに指定したURLへリクエストを送信し始めます。
+//                // delegate指定すると、サーバーからデータを受信したり、エラーが発生したりするとメソッドが呼び出される。
+//                NSURLConnection *aConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+//                
+//                // 作成に失敗する場合には、リクエストが送信されないのでチェックする
+//                if (!aConnection) {
+//                    NSLog(@"connection error.");
+//                }
+//                
+//            }
+//        }
         
         self.beaconFoundLabel.text = @"Yes";
         // UUID
@@ -273,7 +265,6 @@
 // iOS8 ユーザの位置情報の許可状態を確認するメソッド
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
-    NSLog(@"UNKO7");
     if (status == kCLAuthorizationStatusNotDetermined) {
         // ユーザが位置情報の使用を許可していない
     } else if(status == kCLAuthorizationStatusAuthorizedAlways) {
@@ -288,7 +279,6 @@
 
 - (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error
 {
-    NSLog(@"UNKO8");
     [self sendLocalNotificationForMessage:@"出口エリア Exit Region"];
 }
 
@@ -302,25 +292,6 @@
     localNotification.fireDate = [NSDate date];
     localNotification.soundName = UILocalNotificationDefaultSoundName;
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-    
-    
-//    {
-//        // 送信したいURLを作成し、Requestを作成します。
-//        NSURL *url = [NSURL URLWithString:@"/sa?uu=C3373A41-8E97-4145-BC2B-B2DE7587C52F&mj=$0&mn=0&px=$3&id=$1"];
-//        NSLog(@"URL:%@", url);
-//        NSURLRequest  *request = [[NSURLRequest alloc] initWithURL:url];
-//        NSLog(@"REQ:%@", request);
-//    
-//        // NSURLConnectionのインスタンスを作成したら、すぐに指定したURLへリクエストを送信し始めます。
-//        // delegate指定すると、サーバーからデータを受信したり、エラーが発生したりするとメソッドが呼び出される。
-//        NSURLConnection *aConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-//    
-//        // 作成に失敗する場合には、リクエストが送信されないのでチェックする
-//        if (!aConnection) {
-//            NSLog(@"connection error.");
-//        }
-//    }
-
 }
 
 @end
