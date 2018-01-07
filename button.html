@@ -1,0 +1,17 @@
+<html>
+<body>
+<script language="JavaScript">
+    function recievePi() {
+        return true;
+    }
+</script>
+
+<h1>今何処にいる？</h1>
+<form name="f1" action="/" method="post" onSubmit="return recievePi()">
+    <p>
+        <input type="submit" value="受信">
+    </p>
+</form>
+<div>{{message}}</div>
+</body>
+</html>
